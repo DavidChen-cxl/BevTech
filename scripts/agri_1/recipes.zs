@@ -1,7 +1,7 @@
 //Agriculture I recipes process
 import crafttweaker.api.BracketHandlers;
-var woods = ["oak","spruce","birch","jungle","acacia","dark_oak"];
-var stems = ["crimson", "warped"];
+var woods = ["oak","spruce","birch","jungle","acacia","dark_oak"]; //define logs name as string
+var stems = ["crimson", "warped"]; 
 //Crafting Table Module
 //Remove recipes
 craftingTable.removeRecipe(<item:minecraft:crafting_table>);
@@ -18,8 +18,9 @@ craftingTable.removeRecipe(<item:minecraft:stone_hoe>);
 craftingTable.removeRecipe(<item:minecraft:stone_shovel>);
 craftingTable.removeRecipe(<item:quark:dirty_glass>);
 craftingTable.removeRecipe(<item:minecraft:farmland>);
+craftingTable.removeRecipe(<item:minecraft:stick>);
 for n in woods {
-	val thing = BracketHandlers.getItem("minecraft:" + n + "_planks");
+	val thing = BracketHandlers.getItem("minecraft:" + n + "_planks");//Remove recipes of all kinds of planks in craftingTable
 	craftingTable.removeRecipe(thing);
 }
 for n in stems {
@@ -27,13 +28,15 @@ for n in stems {
 	craftingTable.removeRecipe(thing2);
 }
 //Add recipes
+craftingTable.addShapeless("bt.root", <item:quark:root>, [<item:minecraft:grass>]);
+
 craftingTable.addShapeless("bt.flint", <item:minecraft:flint>, [
 	<item:minecraft:gravel>, <item:minecraft:gravel>, <item:minecraft:gravel>
 ]);
 
 craftingTable.addShaped("bt.flint_scissors", <item:cyclic:shears_flint>, [
 	[<item:minecraft:stick>, <item:minecraft:flint>],
-	[<item:quark:root>,      <item:minecraft:stick>]
+	[<item:minecraft:flint>, <item:minecraft:stick>]
 ]);
 
 craftingTable.addShaped("bt.wooden_pickaxe",  <item:minecraft:wooden_pickaxe>, [
@@ -110,9 +113,19 @@ craftingTable.addShapeless("bt.dirty_glass", <item:quark:dirty_glass>, [
 ]);
 
 //Fornuance Module
-import crafttweaker.api.FurnaceManager;
+import crafttweaker.api.FurnaceManager;//fornace recipe require this
 //Remove recipes
+var ingots = [<item:minecraft:iron_ingot>,
+              <item:minecraft:gold_ingot>,
+              <item:mekanism:ingot_osmium>,
+              <item:mekanism:ingot_copper>,
+              <item:mekanism:ingot_tin>,
+              <item:mekanism:ingot_lead>,
+              <item:mekanism:ingot_uranium>];
 furnace.removeRecipe(<item:minecraft:glass>);
+for n in ingots {
+	furnace.removeRecipe(n);
+}
 //Add recipes
 furnace.addRecipe("sand2glass", <item:quark:dirty_shard>, <item:minecraft:sand>, 1.0, 200);
 
@@ -121,7 +134,7 @@ import crafttweaker.api.StoneCutterManager;
 //Remove recipes
 //Add recipes
 for n in woods {
-	val plank = BracketHandlers.getItem("minecraft:" + n + "_planks");
+	val plank = BracketHandlers.getItem("minecraft:" + n + "_planks");//add recipes of all kinds of planks in stoneCutter
 	val log = BracketHandlers.getItem("minecraft:" + n + "_log");
 	stoneCutter.addRecipe("bt." + n + "_log2plank", plank * 2, log);
 }
@@ -129,4 +142,5 @@ for n in stems {
 	val plank = BracketHandlers.getItem("minecraft:" + n + "_planks");
 	val stem = BracketHandlers.getItem("minecraft:" + n + "_stem");
 	stoneCutter.addRecipe("bt." + n + "_log2plank", plank * 2, stem);
+	stoneCutter.addRecipe("bt." + n + "_plank2stick", <item:minecraft:stick> * 2, plank);
 }
