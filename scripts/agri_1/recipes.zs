@@ -19,6 +19,8 @@ craftingTable.removeRecipe(<item:minecraft:stone_shovel>);
 craftingTable.removeRecipe(<item:quark:dirty_glass>);
 craftingTable.removeRecipe(<item:minecraft:farmland>);
 craftingTable.removeRecipe(<item:minecraft:stick>);
+craftingTable.removeRecipe(<item:minecraft:torch>);
+
 for n in woods {
 	val thing = BracketHandlers.getItem("minecraft:" + n + "_planks");//Remove recipes of all kinds of planks in craftingTable
 	craftingTable.removeRecipe(thing);
@@ -27,6 +29,10 @@ for n in stems {
 	val thing2 = BracketHandlers.getItem("minecraft:" + n + "_planks");
 	craftingTable.removeRecipe(thing2);
 }
+
+craftingTable.addShapeless("bt.torch1", <item:minecraft:torch> * 4, [<item:minecraft:stick>,<item:minecraft:coal>,<item:quark:root>]);
+craftingTable.addShapeless("bt.torch2", <item:minecraft:torch> * 4, [<item:minecraft:stick>,<item:minecraft:charcoal>,<item:quark:root>]);
+
 //Add recipes
 craftingTable.addShapeless("bt.root", <item:quark:root>, [<item:minecraft:grass>]);
 
