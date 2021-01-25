@@ -2,7 +2,6 @@
 import crafttweaker.api.BracketHandlers;
 import crafttweaker.api.StoneCutterManager;
 import crafttweaker.api.FurnaceManager;//fornace recipe require this
-import crafttweaker.api.tag.TagManager;
 var woods = ["oak","spruce","birch","jungle","acacia","dark_oak"]; //define logs name as string
 var stems = ["crimson", "warped"]; 
 
@@ -22,6 +21,8 @@ craftingTable.removeRecipe(<item:minecraft:stone_pickaxe>);
 craftingTable.removeRecipe(<item:minecraft:stone_axe>);
 craftingTable.removeRecipe(<item:minecraft:stone_hoe>);
 craftingTable.removeRecipe(<item:minecraft:stone_shovel>);
+craftingTable.removeRecipe(<item:minecraft:iron_hoe>);
+craftingTable.removeRecipe(<item:minecraft:golden_hoe>);
 craftingTable.removeRecipe(<item:quark:dirty_glass>);
 craftingTable.removeRecipe(<item:minecraft:farmland>);
 craftingTable.removeRecipe(<item:minecraft:torch>);
@@ -67,63 +68,57 @@ craftingTable.addShaped("bb.wooden_pickaxe",  <item:minecraft:wooden_pickaxe>, [
 ]);
 
 craftingTable.addShaped("bb.craftingtable", <item:minecraft:crafting_table>, [
-	[<item:minecraft:cobblestone>, <item:minecraft:white_wool>],
-	[<item:minecraft:cobblestone>, <item:minecraft:oak_log>]
+	[<tag:items:minecraft:stone_tool_materials>, <item:minecraft:white_wool>],
+	[<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:logs>]
 ]);
 
 craftingTable.addShaped("bb.stonecutter", <item:minecraft:stonecutter>, [
-	[<item:minecraft:air>,         <item:quark:stone_speleothem>],
-	[<item:minecraft:white_wool>,  <item:quark:root>,            <item:minecraft:white_wool>],
-	[<item:minecraft:cobblestone>, <item:minecraft:cobblestone>, <item:minecraft:cobblestone>]
+	[<item:minecraft:air>,                       <item:quark:stone_speleothem>],
+	[<item:minecraft:white_wool>,                <item:quark:root>,            <item:minecraft:white_wool>],
+	[<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>]
 ]);
-/*
-craftingTable.addShaped("bb.wooden_hoe", <item:minecraft:wooden_hoe>, [
-	[<tag:minecraft/planks>, <tag:minecraft/planks>],
-	[<item:quark:root>,      <item:minecraft:stick>, <item:quark:root>],
-	[<item:minecraft:air>,   <item:minecraft:stick>]
+
+craftingTable.addShaped("bb.wooden_hoe", <item:minecraft:wooden_hoe>.withDamage(58), [
+	[<tag:items:minecraft:planks>, <tag:items:minecraft:planks>],
+	[<item:quark:root>,            <item:minecraft:stick>,       <item:quark:root>],
+	[<item:minecraft:air>,         <item:minecraft:stick>]
 ]);
-*/
+
 craftingTable.addShaped("bb.glass", <item:minecraft:glass> * 6, [
 	[<item:quark:dirty_glass>,        <item:quark:dirty_glass>,    <item:quark:dirty_glass>],
 	[<item:pamhc2foodcore:flouritem>, <item:minecraft:white_wool>, <item:pamhc2foodcore:flouritem>],
 	[<item:quark:dirty_glass>,        <item:quark:dirty_glass>,    <item:quark:dirty_glass>]
 ]);
-/*
+
 craftingTable.addShaped("bb.wooden_axe", <item:minecraft:wooden_axe>, [
 	[<item:minecraft:flint>, <item:quark:root>],
 	[<item:minecraft:flint>, <item:minecraft:stick>]
 ]);
 
 craftingTable.addShaped("bb.wooden_shovel", <item:minecraft:wooden_shovel>, [
-	[<item:minecraft:air>, <tag:minecraft/planks>],
+	[<item:minecraft:air>, <tag:items:minecraft:planks>],
 	[<item:quark:root>,    <item:minecraft:stick>, <item:quark:root>],
 	[<item:minecraft:air>, <item:minecraft:stick>]
 ]);
 
 craftingTable.addShaped("bb.stone_axe", <item:minecraft:stone_axe>, [
-	[<tag:minecraft/stone_tool_materials>, <tag:minecraft/stone_tool_materials>, <item:quark:root>],
-	[<tag:minecraft/stone_tool_materials>, <item:minecraft:stick>,              <item:quark:root>],
-	[<item:minecraft:air>,                 <item:minecraft:stick>]
-]);
-
-craftingTable.addShaped("bb.stone_hoe", <item:minecraft:stone_hoe>, [
-	[<tag:minecraft:stone_tool_materials>, <tag:minecraft:stone_tool_materials>],
-	[<item:quark:root>,                   <item:minecraft:stick>, <item:quark:root>],
-	[<item:minecraft:air>,                <item:minecraft:stick>]
+	[<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>, <item:quark:root>],
+	[<tag:items:minecraft:stone_tool_materials>, <item:minecraft:stick>,                    <item:quark:root>],
+	[<item:minecraft:air>,                       <item:minecraft:stick>]
 ]);
 
 craftingTable.addShaped("bb.stone_pickaxe", <item:minecraft:stone_pickaxe>, [
-	[<tag:minecraft:stone_tool_materials>, <tag:minecraft:stone_tool_materials>, <tag:minecraft:stone_tool_materials>],
-	[<item:quark:root>,                   <item:minecraft:stick>,              <item:quark:root>],
-	[<item:minecraft:air>,                <item:minecraft:stick>]
+	[<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>],
+	[<item:quark:root>,                          <item:minecraft:stick>,                     <item:quark:root>],
+	[<item:minecraft:air>,                       <item:minecraft:stick>]
 ]);
 
 craftingTable.addShaped("bb.stone_shovel", <item:minecraft:stone_shovel>, [
-	[<item:minecraft:air>, <tag:minecraft:stone_tool_materials>],
+	[<item:minecraft:air>, <tag:items:minecraft:stone_tool_materials>],
 	[<item:quark:root>,    <item:minecraft:stick>, <item:quark:root>],
 	[<item:minecraft:air>, <item:minecraft:stick>]
 ]);
-*/
+
 craftingTable.addShaped("bb.farmland", <item:minecraft:farmland> * 8, [
 	[<item:minecraft:dirt>, <item:minecraft:dirt>,       <item:minecraft:dirt>],
 	[<item:minecraft:dirt>, <item:minecraft:wooden_hoe>, <item:minecraft:dirt>],
@@ -131,9 +126,9 @@ craftingTable.addShaped("bb.farmland", <item:minecraft:farmland> * 8, [
 ]);
 
 craftingTable.addShaped("bb.bot_apothecaryDefault", <item:botania:apothecary_default>, [
-	[<item:minecraft:cobblestone_slab>, <item:minecraft:honey_bottle>, <item:minecraft:cobblestone_slab>],
-	[<item:minecraft:air>,              <item:minecraft:cobblestone>],
-	[<item:minecraft:cobblestone>,      <item:minecraft:cobblestone>,  <item:minecraft:cobblestone>]
+	[<item:minecraft:cobblestone_slab>,          <item:minecraft:honey_bottle>,              <item:minecraft:cobblestone_slab>],
+	[<item:minecraft:air>,                       <tag:items:minecraft:stone_tool_materials>],
+	[<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>]
 ]);
 
 //Fornuance Module
@@ -167,15 +162,7 @@ for n in stems {
 
 /* TECH */
 // CraftingTable
-craftingTable.removeRecipe(<item:mekanism:digital_miner>);//
-craftingTable.removeRecipe(<item:mekanismgenerators:heat_generator>);//
-craftingTable.removeRecipe(<item:mekanism:metallurgic_infuser>);//
-craftingTable.removeRecipe(<item:mekanism:steel_casing>);//
-craftingTable.removeRecipe(<item:envirocore:obsidian_plate>);//Obsidian 
-craftingTable.removeRecipe(<item:botania:manasteel_helmet>);
-craftingTable.removeRecipe(<item:botania:manasteel_chestplate>);
-craftingTable.removeRecipe(<item:botania:manasteel_leggings>);
-craftingTable.removeRecipe(<item:botania:manasteel_boots>);
+craftingTable.removeRecipe(<item:mekanism:digital_miner>);
 craftingTable.removeRecipe(<item:mekanismtools:bronze_helmet>);
 craftingTable.removeRecipe(<item:mekanismtools:bronze_chestplate>);
 craftingTable.removeRecipe(<item:mekanismtools:bronze_leggings>);
@@ -200,18 +187,15 @@ craftingTable.removeRecipe(<item:mekanismtools:steel_helmet>);
 craftingTable.removeRecipe(<item:mekanismtools:steel_chestplate>);
 craftingTable.removeRecipe(<item:mekanismtools:steel_leggings>);
 craftingTable.removeRecipe(<item:mekanismtools:steel_boots>);
-craftingTable.removeRecipe(<item:mekanism:mekasuit_helmet>);
-craftingTable.removeRecipe(<item:mekanism:mekasuit_bodyarmor>);
-craftingTable.removeRecipe(<item:mekanism:mekasuit_pants>);
-craftingTable.removeRecipe(<item:mekanism:mekasuit_boots>);
-craftingTable.removeRecipe(<item:mekanism:hdpe_sheet>);
 
+craftingTable.removeRecipe(<item:mekanismgenerators:heat_generator>);
 craftingTable.addShaped("bb.mek_heatGenerator", <item:mekanismgenerators:heat_generator>, [
 	[<item:minecraft:iron_ingot>,  <item:minecraft:iron_ingot>,    <item:minecraft:iron_ingot>],
-	[<item:minecraft:oak_planks>,  <item:botania:manasteel_ingot>, <item:minecraft:oak_planks>],
+	[<tag:items:minecraft:planks>, <item:botania:manasteel_ingot>, <tag:items:minecraft:planks>],
 	[<item:mekanism:ingot_copper>, <item:minecraft:furnace>,       <item:mekanism:ingot_copper>]
 ]);
 
+craftingTable.removeRecipe(<item:mekanism:metallurgic_infuser>);
 craftingTable.addShaped("bb.mek_metallurgic_infuser", <item:mekanism:metallurgic_infuser>, [
 	[<item:botania:manasteel_ingot>, <item:minecraft:furnace>,     <item:botania:manasteel_ingot>],
 	[<item:minecraft:redstone>,      <item:mekanism:ingot_osmium>, <item:minecraft:redstone>],
@@ -224,67 +208,127 @@ craftingTable.addShaped("bb.bot_tech_blackLotus", <item:botania:black_lotus> * 4
 	[<item:minecraft:air>,      <item:botania:redstone_root>,              <item:minecraft:air>]
 ]);
 
+craftingTable.removeRecipe(<item:mekanism:steel_casing>);
 craftingTable.addShaped("bb.mek_steelCasing", <item:mekanism:steel_casing>, [
 	[<item:mekanism:ingot_steel>, <item:botania:mana_glass>,      <item:mekanism:ingot_steel>],
 	[<item:botania:mana_glass>,   <item:botania:manasteel_ingot>, <item:botania:mana_glass>],
 	[<item:mekanism:ingot_steel>, <item:botania:mana_glass>,      <item:mekanism:ingot_steel>]
 ]);
 
+craftingTable.removeRecipe(<item:envirocore:obsidian_plate>);//Obsidian 
 craftingTable.addShaped("bb.env_obsidianPlate", <item:envirocore:obsidian_plate>, [
 	[<item:mekanism:ingot_refined_obsidian>, <item:mekanism:ingot_refined_obsidian>],
 	[<item:mekanism:ingot_refined_obsidian>, <item:mekanism:ingot_refined_obsidian>]
 ]);
 
+craftingTable.removeRecipe(<item:botania:manasteel_helmet>);
 craftingTable.addShaped("bb.bot_tech_manasteelhelmet", <item:botania:manasteel_helmet>, [
 	[<item:minecraft:air>,     <item:minecraft:air>,                   <item:minecraft:air>],
 	[<item:botania:manasteel_ingot>, <item:botania:manasteel_ingot>,               <item:botania:manasteel_ingot>],
 	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>]
 ]);
 
+craftingTable.removeRecipe(<item:botania:manasteel_chestplate>);
 craftingTable.addShaped("bb.bot_tech_manasteelChestplate", <item:botania:manasteel_chestplate>, [
 	[<item:botania:manasteel_ingot>, <item:minecraft:air>,                   <item:botania:manasteel_ingot>],
 	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>],
 	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>]
 ]);
 
+craftingTable.removeRecipe(<item:botania:manasteel_leggings>);
 craftingTable.addShaped("bb.bot_tech_manasteelLeggings", <item:botania:manasteel_leggings>, [
 	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>],
 	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>],
 	[<item:botania:manasteel_ingot>, <item:minecraft:air>,                   <item:botania:manasteel_ingot>]
 ]);
 
+craftingTable.removeRecipe(<item:botania:manasteel_boots>);
 craftingTable.addShaped("bb.bot_tech_manasteelBoot", <item:botania:manasteel_boots>, [
 	[<item:botania:manasteel_ingot>, <item:minecraft:air>,                   <item:botania:manasteel_ingot>],
 	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>]
 ]);
 
+// Enrich Machine recipe needs removed!
+craftingTable.removeRecipe(<item:mekanism:hdpe_sheet>);
 craftingTable.addShaped("bb.mek_hdpe_sheet", <item:mekanism:hdpe_sheet>, [
 	[<item:mekanism:hdpe_pellet>, <item:mekanism:hdpe_pellet>,             <item:mekanism:hdpe_pellet>],
 	[<item:mekanism:hdpe_pellet>, <item:mekanism:dust_netherite>, <item:mekanism:hdpe_pellet>],
 	[<item:mekanism:hdpe_pellet>, <item:mekanism:hdpe_pellet>,             <item:mekanism:hdpe_pellet>]
 ]);
 
+craftingTable.removeRecipe(<item:mekanism:mekasuit_helmet>);
 craftingTable.addShaped("bb.mek_mekasuithelmet", <item:mekanism:mekasuit_helmet>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_helmet>,         <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
 
+craftingTable.removeRecipe(<item:mekanism:mekasuit_bodyarmor>);
 craftingTable.addShaped("bb.mek_mekasuitBodyarmor", <item:mekanism:mekasuit_bodyarmor>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_chestplate>,     <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
 
+craftingTable.removeRecipe(<item:mekanism:mekasuit_pants>);
 craftingTable.addShaped("bb.mek_mekasuitPants", <item:mekanism:mekasuit_pants>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_leggings>,     <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
 
-craftingTable.addShaped("bb.mek_mekasuitPants", <item:mekanism:mekasuit_pants>, [
+craftingTable.removeRecipe(<item:mekanism:mekasuit_boots>);
+craftingTable.addShaped("bb.mek_mekasuitBoots", <item:mekanism:mekasuit_boots>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_boots>,     <item:mekanism:hdpe_sheet>],
 	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
+
+craftingTable.removeRecipe(<item:mekanism:sps_casing>);
+craftingTable.addShaped("bb.mek_spsCasing", <item:mekanism:sps_casing>, [
+	[<item:mekanism:hdpe_sheet>,               <item:mekanism:pellet_polonium>,  <item:mekanism:hdpe_sheet>],
+	[<item:iceandfire:dragon_skull_lightning>, <item:mekanism:pellet_plutonium>, <item:iceandfire:dragon_skull_lightning>],
+	[<item:mekanism:hdpe_sheet>,               <item:mekanism:pellet_polonium>,  <item:mekanism:hdpe_sheet>]
+]);
+
 /* AGRI */
+craftingTable.removeRecipe(<item:scalinghealth:heart_crystal>);
+craftingTable.addShaped("bb.scal_heartCrystal", <item:scalinghealth:heart_crystal>, [
+	[<item:scalinghealth:heart_crystal_shard>, <item:scalinghealth:heart_crystal_shard>,         <item:scalinghealth:heart_crystal_shard>],
+	[<item:scalinghealth:heart_crystal_shard>, <item:industrialforegoing:machine_frame_supreme>, <item:scalinghealth:heart_crystal_shard>],
+	[<item:scalinghealth:heart_crystal_shard>, <item:scalinghealth:heart_crystal_shard>,         <item:scalinghealth:heart_crystal_shard>]
+]);
+
+craftingTable.removeRecipe(<item:scalinghealth:power_crystal>);
+craftingTable.addShaped("bb.scal_powerCrystal", <item:scalinghealth:power_crystal>, [
+	[<item:scalinghealth:power_crystal_shard>, <item:scalinghealth:power_crystal_shard>,         <item:scalinghealth:power_crystal_shard>],
+	[<item:scalinghealth:power_crystal_shard>, <item:industrialforegoing:machine_frame_supreme>, <item:scalinghealth:power_crystal_shard>],
+	[<item:scalinghealth:power_crystal_shard>, <item:scalinghealth:power_crystal_shard>,         <item:scalinghealth:power_crystal_shard>]
+]);
+
+craftingTable.addShaped("bb.bot_agri_blackLotus", <item:botania:black_lotus>, [
+	[<item:minecraft:air>,      <item:botania:livingwood>,    <item:minecraft:air>],
+	[<item:botania:livingwood>, <item:minecraft:honey_block>, <item:botania:livingwood>],
+	[<item:minecraft:air>,      <item:botania:redstone_root>, <item:minecraft:air>]
+]);
+
+craftingTable.removeRecipe(<item:astralsorcery:tome>);
+craftingTable.addShaped("bb.as_tome", <item:astralsorcery:tome>, [
+	[<item:minecraft:air>,               <item:astralsorcery:parchment>,  <item:minecraft:air>],
+	[<item:scalinghealth:heart_crystal>, <item:minecraft:book>,           <item:scalinghealth:power_crystal>],
+	[<item:minecraft:air>,               <item:astralsorcery:aquamarine>, <item:minecraft:air>]
+]);
+
+craftingTable.removeRecipe(<item:cookingforblockheads:sink>);
+craftingTable.addShaped("bb.c4bh_sink", <item:cookingforblockheads:sink>, [
+	[<item:botania:manasteel_ingot>, <item:botania:manasteel_ingot>,                  <item:botania:manasteel_ingot>],
+	[<tag:items:forge:gears/iron>,   <item:industrialforegoing:water_condensator>,    <tag:items:forge:gears/iron>],
+	[<item:minecraft:terracotta>,    <item:industrialforegoing:machine_frame_simple>, <item:minecraft:terracotta>]
+]);
+
+craftingTable.removeRecipe(<item:cookingforblockheads:milk_jar>);
+craftingTable.addShaped("bb.c4hb_milkJar", <item:cookingforblockheads:milk_jar>, [
+	[<item:botania:elf_glass>,     <item:botania:elf_glass>,                        <item:botania:elf_glass>],
+	[<tag:items:forge:gears/iron>, <item:productivebees:bee_cage>,                  <tag:items:forge:gears/iron>],
+	[<item:botania:elf_glass>,     <item:industrialforegoing:machine_frame_simple>, <item:botania:elf_glass>]
+]);
