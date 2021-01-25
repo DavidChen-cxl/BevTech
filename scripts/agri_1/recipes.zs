@@ -27,7 +27,7 @@ craftingTable.removeRecipe(<item:minecraft:farmland>);
 craftingTable.removeRecipe(<item:minecraft:torch>);
 craftingTable.removeRecipe(<item:botania:lexicon>);
 craftingTable.removeRecipe(<item:botania:apothecary_default>);
-craftingTable.removeRecipe(<item:minecraft:ender_pearl>)
+craftingTable.removeRecipe(<item:minecraft:ender_pearl>);
 
 for n in woods {
 	val thing = BracketHandlers.getItem("minecraft:" + n + "_planks");//Remove recipes of all kinds of planks in craftingTable
@@ -167,10 +167,10 @@ for n in stems {
 
 /* TECH */
 // CraftingTable
-craftingTable.removeRecipe(<item:mekanismgenerators:digital_miner>);//数字采矿机
-craftingTable.removeRecipe(<item:mekanismgenerators:heat_generator>);//火力发电机
-craftingTable.removeRecipe(<item:mekanism:metallurgic_infuser>);//冶金灌注机
-craftingTable.removeRecipe(<item:mekanism:steel_casing>);//钢制机壳
+craftingTable.removeRecipe(<item:mekanism:digital_miner>);//
+craftingTable.removeRecipe(<item:mekanismgenerators:heat_generator>);//
+craftingTable.removeRecipe(<item:mekanism:metallurgic_infuser>);//
+craftingTable.removeRecipe(<item:mekanism:steel_casing>);//
 craftingTable.removeRecipe(<item:envirocore:obsidian_plate>);//Obsidian 
 craftingTable.removeRecipe(<item:botania:manasteel_helmet>);
 craftingTable.removeRecipe(<item:botania:manasteel_chestplate>);
@@ -184,10 +184,10 @@ craftingTable.removeRecipe(<item:mekanismtools:lapis_lazuli_helmet>);
 craftingTable.removeRecipe(<item:mekanismtools:lapis_lazuli_chestplate>);
 craftingTable.removeRecipe(<item:mekanismtools:lapis_lazuli_leggings>);
 craftingTable.removeRecipe(<item:mekanismtools:lapis_lazuli_boots>);
-craftingTable.removeRecipe(<item:mekanismtools:osmuim_helmet_helmet>);
-craftingTable.removeRecipe(<item:mekanismtools:osmuim_helmet_chestplate>);
-craftingTable.removeRecipe(<item:mekanismtools:osmuim_helmet_leggings>);
-craftingTable.removeRecipe(<item:mekanismtools:osmuim_helmet_boots>);
+craftingTable.removeRecipe(<item:mekanismtools:osmium_helmet>);
+craftingTable.removeRecipe(<item:mekanismtools:osmium_chestplate>);
+craftingTable.removeRecipe(<item:mekanismtools:osmium_leggings>);
+craftingTable.removeRecipe(<item:mekanismtools:osmium_boots>);
 craftingTable.removeRecipe(<item:mekanismtools:refined_glowstone_helmet>);
 craftingTable.removeRecipe(<item:mekanismtools:refined_glowstone_chestplate>);
 craftingTable.removeRecipe(<item:mekanismtools:refined_glowstone_leggings>);
@@ -237,48 +237,54 @@ craftingTable.addShaped("bb.env_obsidianPlate", <item:envirocore:obsidian_plate>
 
 craftingTable.addShaped("bb.bot_tech_manasteelhelmet", <item:botania:manasteel_helmet>, [
 	[<item:minecraft:air>,     <item:minecraft:air>,                   <item:minecraft:air>],
-	[<item:botania:manasteel>, <item:botania:manasteel>,               <item:botania:manasteel>],
-	[<item:botania:manasteel>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel>]
+	[<item:botania:manasteel_ingot>, <item:botania:manasteel_ingot>,               <item:botania:manasteel_ingot>],
+	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>]
 ]);
 
 craftingTable.addShaped("bb.bot_tech_manasteelChestplate", <item:botania:manasteel_chestplate>, [
-	[<item:botania:manasteel>, <item:minecraft:air>,                   <item:botania:manasteel>],
-	[<item:botania:manasteel>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel>],
-	[<item:botania:manasteel>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel>]
+	[<item:botania:manasteel_ingot>, <item:minecraft:air>,                   <item:botania:manasteel_ingot>],
+	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>],
+	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>]
 ]);
 
 craftingTable.addShaped("bb.bot_tech_manasteelLeggings", <item:botania:manasteel_leggings>, [
-	[<item:botania:manasteel>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel>],
-	[<item:botania:manasteel>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel>],
-	[<item:botania:manasteel>, <item:minecraft:air>,                   <item:botania:manasteel>]
+	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>],
+	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>],
+	[<item:botania:manasteel_ingot>, <item:minecraft:air>,                   <item:botania:manasteel_ingot>]
 ]);
 
-craftingTable.addShaped("bb.bot_tech_manasteelBoot", <item:botania:manasteel_boot>, [
-	[<item:botania:manasteel>, <item:minecraft:air>,                   <item:botania:manasteel>],
-	[<item:botania:manasteel>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel>]
+craftingTable.addShaped("bb.bot_tech_manasteelBoot", <item:botania:manasteel_boots>, [
+	[<item:botania:manasteel_ingot>, <item:minecraft:air>,                   <item:botania:manasteel_ingot>],
+	[<item:botania:manasteel_ingot>, <item:mekanism:ingot_refined_obsidian>, <item:botania:manasteel_ingot>]
 ]);
 
 craftingTable.addShaped("bb.mek_hdpe_sheet", <item:mekanism:hdpe_sheet>, [
-	[<item:hdpe_pellet>, <item:hdpe_pellet>,             <item:hdpe_pellet>],
-	[<item:hdpe_pellet>, <item:mekanism:dust_netherite>, <item:hdpe_pellet>],
-	[<item:hdpe_pellet>, <item:hdpe_pellet>,             <item:hdpe_pellet>]
+	[<item:mekanism:hdpe_pellet>, <item:mekanism:hdpe_pellet>,             <item:mekanism:hdpe_pellet>],
+	[<item:mekanism:hdpe_pellet>, <item:mekanism:dust_netherite>, <item:mekanism:hdpe_pellet>],
+	[<item:mekanism:hdpe_pellet>, <item:mekanism:hdpe_pellet>,             <item:mekanism:hdpe_pellet>]
 ]);
 
 craftingTable.addShaped("bb.mek_mekasuithelmet", <item:mekanism:mekasuit_helmet>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
-	[<item:mekanism:hdpe_sheet>,      <item:botania:tettasteel_helmet>,         <item:mekanism:hdpe_sheet>],
-	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction>,          <item:mekanism:pellet_polonium>]
+	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_helmet>,         <item:mekanism:hdpe_sheet>],
+	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
 
 craftingTable.addShaped("bb.mek_mekasuitBodyarmor", <item:mekanism:mekasuit_bodyarmor>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
-	[<item:mekanism:hdpe_sheet>,      <item:botania:tettasteel_chestplate>,     <item:mekanism:hdpe_sheet>],
-	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction>,          <item:mekanism:pellet_polonium>]
+	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_chestplate>,     <item:mekanism:hdpe_sheet>],
+	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
 
 craftingTable.addShaped("bb.mek_mekasuitPants", <item:mekanism:mekasuit_pants>, [
 	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
-	[<item:mekanism:hdpe_sheet>,      <item:botania:tettasteel_leggings>,     <item:mekanism:hdpe_sheet>],
-	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction>,          <item:mekanism:pellet_polonium>]
+	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_leggings>,     <item:mekanism:hdpe_sheet>],
+	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
+]);
+
+craftingTable.addShaped("bb.mek_mekasuitPants", <item:mekanism:mekasuit_pants>, [
+	[<item:mekanism:hdpe_sheet>,      <item:mekanism:ultimate_control_circuit>, <item:mekanism:hdpe_sheet>],
+	[<item:mekanism:hdpe_sheet>,      <item:botania:terrasteel_boots>,     <item:mekanism:hdpe_sheet>],
+	[<item:mekanism:pellet_polonium>, <item:mekanism:basic_induction_cell>,          <item:mekanism:pellet_polonium>]
 ]);
 /* AGRI */
