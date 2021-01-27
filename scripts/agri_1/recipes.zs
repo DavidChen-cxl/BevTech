@@ -29,6 +29,10 @@ craftingTable.removeRecipe(<item:minecraft:ender_pearl>);
 craftingTable.addShapeless("bb.torch1", <item:minecraft:torch> * 4, [<item:minecraft:stick>,<item:minecraft:coal>,<item:quark:root>]);
 craftingTable.addShapeless("bb.torch2", <item:minecraft:torch> * 4, [<item:minecraft:stick>,<item:minecraft:charcoal>,<item:quark:root>]);
 
+craftingTable.addShapeless("bb.stick", <item:minecraft:stick> * 2, [
+    <tag:items:forge:sapling>
+]);
+
 craftingTable.addShapeless("bb.root", <item:quark:root>, [<item:minecraft:grass>]);
 
 craftingTable.addShapeless("bb.flint", <item:minecraft:flint>, [
@@ -60,7 +64,7 @@ craftingTable.addShaped("bb.craftingtable", <item:minecraft:crafting_table>, [
 
 craftingTable.addShaped("bb.stonecutter", <item:minecraft:stonecutter>, [
     [<item:minecraft:air>,                       <item:quark:stone_speleothem>],
-    [<item:minecraft:white_wool>,                <item:quark:root>,            <item:minecraft:white_wool>],
+    [<tag:items:minecraft:wool>,                 <item:quark:root>,                          <tag:items:minecraft:wool>],
     [<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>]
 ]);
 
@@ -131,6 +135,7 @@ furnace.removeRecipe(<item:minecraft:glass>);
 furnace.addRecipe("sand2glass", <item:quark:dirty_shard>, <item:minecraft:sand>, 1.0, 200);
 
 //Stone Cutter Module
+// text created by python begins
 craftingTable.removeRecipe(<item:minecraft:oak_planks>);
 stoneCutter.addRecipe("bb.oak_log2plank", <item:minecraft:oak_planks> * 2, <item:minecraft:oak_log>);
 
@@ -154,6 +159,7 @@ stoneCutter.addRecipe("bb.crimson_log2plank", <item:minecraft:crimson_planks> * 
 
 craftingTable.removeRecipe(<item:minecraft:warped_planks>);
 stoneCutter.addRecipe("bb.warped_log2plank", <item:minecraft:warped_planks> * 2, <item:minecraft:warped_stem>);
+// text created by python ends
 
 /* TECH */
 // CraftingTable
@@ -301,7 +307,7 @@ craftingTable.addShaped("bb.mek_elite_control_circuit", <item:mekanism:elite_con
 ]);
 
 craftingTable.removeRecipe(<item:mekanism:ultimate_control_circuit>);
-// This piece is created by python!(from there to +36 recipes)
+// text created by python begins
 craftingTable.addShaped("bb.mek_ultimate_control_circuit_ahrim_ahrim", <item:mekanism:ultimate_control_circuit>, [
     [<item:minecraft:air>,         <item:botania:ancient_will_ahrim>,        <item:minecraft:air>],
     [<item:mekanism:alloy_atomic>, <item:mekanism:advanced_control_circuit>, <item:mekanism:alloy_atomic>],
@@ -517,6 +523,11 @@ craftingTable.addShaped("bb.mek_ultimate_control_circuit_karil_karil", <item:mek
     [<item:mekanism:alloy_atomic>, <item:mekanism:advanced_control_circuit>, <item:mekanism:alloy_atomic>],
     [<item:minecraft:air>,         <item:botania:ancient_will_karil>,        <item:minecraft:air>]
 ]);
+
+craftingTable.removeRecipe(<item:minecraft:ender_eye>);
+craftingTable.addShapeless("bb.tech_ender_eye", <item:minecraft:ender_eye>, [
+    <item:minecraft:ender_pearl>, <item:mekanism:dust_netherite>
+]);
 // text created by python ends
 /* AGRI */
 craftingTable.removeRecipe(<item:scalinghealth:heart_crystal>);
@@ -559,3 +570,88 @@ craftingTable.addShaped("bb.c4hb_milk_jar", <item:cookingforblockheads:milk_jar>
     [<tag:items:forge:gears/iron>, <item:productivebees:bee_cage>,                  <tag:items:forge:gears/iron>],
     [<item:botania:elf_glass>,     <item:industrialforegoing:machine_frame_simple>, <item:botania:elf_glass>]
 ]);
+
+craftingTable.addShapeless("bb.agri_ender_eye", <item:minecraft:ender_eye>, [
+    <item:minecraft:ender_pearl>, <item:industrialforegoing:pink_slime>
+]);
+
+// text created by python begins
+craftingTable.removeRecipe(<item:productivebees:advanced_oak_beehive>);
+craftingTable.addShaped("bb.pb_advanced_oak_beehive", <item:productivebees:advanced_oak_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:minecraft:beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_spruce_beehive>);
+craftingTable.addShaped("bb.pb_advanced_spruce_beehive", <item:productivebees:advanced_spruce_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:spruce_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_birch_beehive>);
+craftingTable.addShaped("bb.pb_advanced_birch_beehive", <item:productivebees:advanced_birch_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:birch_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_jungle_beehive>);
+craftingTable.addShaped("bb.pb_advanced_jungle_beehive", <item:productivebees:advanced_jungle_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:jungle_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_acacia_beehive>);
+craftingTable.addShaped("bb.pb_advanced_acacia_beehive", <item:productivebees:advanced_acacia_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:acacia_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_dark_oak_beehive>);
+craftingTable.addShaped("bb.pb_advanced_dark_oak_beehive", <item:productivebees:advanced_dark_oak_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:dark_oak_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_crimson_beehive>);
+craftingTable.addShaped("bb.pb_advanced_crimson_beehive", <item:productivebees:advanced_crimson_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:crimson_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:advanced_warped_beehive>);
+craftingTable.addShaped("bb.pb_advanced_warped_beehive", <item:productivebees:advanced_warped_beehive>, [
+    [<item:botania:life_essence>, <item:industrialforegoing:machine_frame_supreme>, <item:botania:life_essence>],
+    [<item:the_bumblezone:honey_crystal_shards>, <item:buzzier_bees:warped_beehive>, <item:the_bumblezone:honey_crystal_shards>],
+    [<item:botania:rune_fire>, <tag:items:minecraft:logs>, <item:industrialforegoing:animal_rancher>]
+]);
+// text created by python ends
+
+craftingTable.removeRecipe(<item:productivebees:centrifuge>);
+craftingTable.addShaped("bb.pb_centrifuge", <item:productivebees:centrifuge>, [
+    [<item:the_bumblezone:honey_crystal_shards>, <item:the_bumblezone:honey_crystal_shards>,        <item:the_bumblezone:honey_crystal_shards>],
+    [<item:minecraft:iron_block>,                <item:industrialforegoing:fluid_extractor>,        <item:minecraft:grindstone>],
+    [<item:the_bumblezone:beeswax_planks>,       <item:industrialforegoing:machine_frame_advanced>, <item:the_bumblezone:beeswax_planks>]
+]);
+
+craftingTable.removeRecipe(<item:productivebees:powered_centrifuge>);
+craftingTable.addShaped("bb.pb_powered_centrifuge", <item:productivebees:powered_centrifuge>, [
+    [<item:minecraft:redstone_block>,            <item:minecraft:iron_block>,                      <item:minecraft:redstone_block>],
+    [<item:the_bumblezone:honey_crystal_shield>, <item:productivebees:centrifuge>,                 <item:the_bumblezone:honey_crystal_shield>],
+    [<tag:items:iceandfire:dragon_skulls>,       <item:industrialforegoing:machine_frame_supreme>, <tag:items:iceandfire:dragon_skulls>]
+]);
+/*
+20210127
+TO DO LIST
+modify machine frames
+remove diamand hoe
+modify environmental tech miners
+modify various hoe recipes, let only Agri-line players can craft
+modify AIOT recipes, let Tech-line players craft
+*/
