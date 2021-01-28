@@ -1,6 +1,9 @@
 //BeeBox script ver 0a.3
 import crafttweaker.api.StoneCutterManager;
 import crafttweaker.api.FurnaceManager;//fornace recipe require this
+import crafttweaker.api.SmithingManager;
+import crafttweaker.api.tag.MCTag;
+import crafttweaker.api.item.MCItemDefinition;
 
 /* EARLY EGE */
 //Crafting Table Module
@@ -14,16 +17,21 @@ craftingTable.removeRecipe(<item:minecraft:glass>);
 craftingTable.removeRecipe(<item:minecraft:stonecutter>);
 craftingTable.removeRecipe(<item:minecraft:stone_pickaxe>);
 craftingTable.removeRecipe(<item:minecraft:stone_axe>);
-craftingTable.removeRecipe(<item:minecraft:stone_hoe>);
 craftingTable.removeRecipe(<item:minecraft:stone_shovel>);
-craftingTable.removeRecipe(<item:minecraft:iron_hoe>);
-craftingTable.removeRecipe(<item:minecraft:golden_hoe>);
 craftingTable.removeRecipe(<item:quark:dirty_glass>);
 craftingTable.removeRecipe(<item:minecraft:farmland>);
 craftingTable.removeRecipe(<item:minecraft:torch>);
 craftingTable.removeRecipe(<item:botania:lexicon>);
 craftingTable.removeRecipe(<item:botania:apothecary_default>);
 craftingTable.removeRecipe(<item:minecraft:ender_pearl>);
+craftingTable.removeRecipe(<item:iceandfire:myrmex_desert_hoe>);
+craftingTable.removeRecipe(<item:iceandfire:myrmex_jungle_hoe>);
+craftingTable.removeByRegex("iceandfire:.*_hoe");
+craftingTable.removeByRegex("mekanismtools:.*/tools/hoe");
+craftingTable.removeByRegex("cyclic:.*_hoe");
+craftingTable.removeByRegex("aiotbotania:.*_hoe");
+
+smithing.removeRecipe(<item:minecraft:netherite_hoe>);
 
 //Add recipes
 craftingTable.addShapeless("bb.torch1", <item:minecraft:torch> * 4, [<item:minecraft:stick>,<item:minecraft:coal>,<item:quark:root>]);
@@ -45,6 +53,58 @@ craftingTable.addShapeless("bb.dirty_glass", <item:quark:dirty_glass>, [
 
 craftingTable.addShapeless("bb.bot_lexicon", <item:botania:lexicon>, [
     <item:minecraft:oak_sapling>, <item:minecraft:book>, <item:minecraft:honey_bottle>
+]);
+
+craftingTable.removeRecipe(<item:minecraft:stone_hoe>);
+smithing.removeRecipe(<item:minecraft:stone_hoe>);
+craftingTable.addShaped("bb.stone_hoe", <item:minecraft:stone_hoe>.withDamage(130), [
+    [<tag:items:minecraft:stone_tool_materials>, <tag:items:minecraft:stone_tool_materials>],
+    [<item:quark:root>,                          <tag:items:forge:rods>,                     <item:quark:root>],
+    [<item:minecraft:air>,                       <tag:items:forge:rods>]
+]);
+craftingTable.addShapeless("bb.stone_farmland", <item:minecraft:farmland> * 16, [
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, 
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, 
+    <item:minecraft:stone_hoe>.withDamage(130)
+]);
+
+craftingTable.removeRecipe(<item:minecraft:golden_hoe>);
+smithing.removeRecipe(<item:minecraft:golden_hoe>);
+craftingTable.addShaped("bb.gold_hoe", <item:minecraft:golden_hoe>.withDamage(31), [
+    [<tag:items:forge:ingots/gold>, <tag:items:forge:ingots/gold>],
+    [<item:quark:root>,             <tag:items:forge:rods>,        <item:quark:root>],
+    [<item:minecraft:air>,          <tag:items:forge:rods>]
+]);
+craftingTable.addShapeless("bb.gold_farmland", <item:minecraft:farmland> * 12, [
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, 
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, 
+    <item:minecraft:golden_hoe>.withDamage(31)
+]);
+
+craftingTable.removeRecipe(<item:minecraft:iron_hoe>);
+smithing.removeRecipe(<item:minecraft:iron_hoe>);
+craftingTable.addShaped("bb.iron_hoe", <item:minecraft:iron_hoe>.withDamage(249), [
+    [<tag:items:forge:ingots/iron>, <tag:items:forge:ingots/iron>],
+    [<item:quark:root>,             <tag:items:forge:rods>,        <item:quark:root>],
+    [<item:minecraft:air>,          <tag:items:forge:rods>]
+]);
+craftingTable.addShapeless("bb.iron_farmland", <item:minecraft:farmland> * 32, [
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>,
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>,
+    <item:minecraft:iron_hoe>.withDamage(249)
+]);
+
+craftingTable.removeRecipe(<item:minecraft:diamond_hoe>);
+smithing.removeRecipe(<item:minecraft:diamond_hoe>);
+craftingTable.addShaped("bb.diamond_hoe", <item:minecraft:diamond_hoe>.withDamage(1560), [
+    [<tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>],
+    [<item:quark:root>,              <tag:items:forge:rods>,        <item:quark:root>],
+    [<item:minecraft:air>,           <tag:items:forge:rods>]
+]);
+craftingTable.addShapeless("bb.diamond_farmland", <item:minecraft:farmland> * 64, [
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>,
+    <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>, <item:minecraft:dirt>,
+    <item:minecraft:diamond_hoe>.withDamage(1560)
 ]);
 
 craftingTable.addShaped("bb.flint_scissors", <item:cyclic:shears_flint>, [
@@ -250,6 +310,7 @@ craftingTable.addShaped("bb.bot_tech_manasteel_boot", <item:botania:manasteel_bo
 ]);
 
 // Enrich Machine recipe needs removed!
+<recipetype:mekanism:enriching>.removeByName("mekanism:enriching/hdpe_sheet");
 craftingTable.removeRecipe(<item:mekanism:hdpe_sheet>);
 craftingTable.addShaped("bb.mek_hdpe_sheet", <item:mekanism:hdpe_sheet>, [
     [<item:mekanism:hdpe_pellet>, <item:mekanism:hdpe_pellet>,    <item:mekanism:hdpe_pellet>],
@@ -529,6 +590,17 @@ craftingTable.addShapeless("bb.tech_ender_eye", <item:minecraft:ender_eye>, [
     <item:minecraft:ender_pearl>, <item:mekanism:dust_netherite>
 ]);
 // text created by python ends
+
+craftingTable.addShapeless("bb.aiot_manasteel_aiot", <item:aiotbotania:manasteel_aiot>, [
+    <item:botania:manasteel_sword>,  <item:botania:manasteel_axe>, <item:botania:manasteel_pick>, 
+    <item:botania:manasteel_shovel>, <item:mekanism:advanced_control_circuit>
+]);
+
+craftingTable.addShapeless("bb.aiot_elementium_aiot", <item:aiotbotania:elementium_aiot>, [
+    <item:botania:elementium_sword>,  <item:botania:elementium_axe>, <item:botania:elementium_pickaxe>, 
+    <item:botania:elementium_shovel>, <item:mekanism:elite_control_circuit>
+]);
+
 /* AGRI */
 craftingTable.removeRecipe(<item:scalinghealth:heart_crystal>);
 craftingTable.addShaped("bb.scal_heart_crystal", <item:scalinghealth:heart_crystal>, [
@@ -646,12 +718,36 @@ craftingTable.addShaped("bb.pb_powered_centrifuge", <item:productivebees:powered
     [<item:the_bumblezone:honey_crystal_shield>, <item:productivebees:centrifuge>,                 <item:the_bumblezone:honey_crystal_shield>],
     [<tag:items:iceandfire:dragon_skulls>,       <item:industrialforegoing:machine_frame_supreme>, <tag:items:iceandfire:dragon_skulls>]
 ]);
+
+craftingTable.addShaped("bb.bot_livingwood_hoe", <item:aiotbotania:livingwood_hoe>, [
+    [<tag:items:botania:livingwood>,        <tag:items:botania:livingwood>],
+    [<item:industrialforegoing:fertilizer>, <item:botania:livingwood_twig>, <item:industrialforegoing:fertilizer>],
+    [<item:minecraft:air>,                  <item:botania:livingwood_twig>]
+]);
+
+craftingTable.addShaped("bb.bot_livingrock_hoe", <item:aiotbotania:livingrock_hoe>, [
+    [<tag:items:botania:livingrock>,        <tag:items:botania:livingrock>],
+    [<item:industrialforegoing:fertilizer>, <item:botania:livingwood_twig>, <item:industrialforegoing:fertilizer>],
+    [<item:minecraft:air>,                  <item:botania:livingwood_twig>]
+]);
+
+craftingTable.addShaped("bb.bot_manasteel_hoe", <item:aiotbotania:manasteel_hoe>, [
+    [<tag:items:forge:ingots/manasteel>,    <tag:items:forge:ingots/manasteel>],
+    [<item:industrialforegoing:fertilizer>, <item:botania:livingwood_twig>, <item:industrialforegoing:fertilizer>],
+    [<item:minecraft:air>,                  <item:botania:livingwood_twig>]
+]);
+
+craftingTable.addShaped("bb.bot_elementium_hoe", <item:aiotbotania:elementium_hoe>, [
+    [<tag:items:forge:ingots/elementium>,   <tag:items:forge:ingots/elementium>],
+    [<item:industrialforegoing:fertilizer>, <item:botania:dreamwood_twig>, <item:industrialforegoing:fertilizer>],
+    [<item:minecraft:air>,                  <item:botania:dreamwood_twig>]
+]);
+
 /*
-20210127
+20210128
 TO DO LIST
 modify machine frames
-remove diamand hoe
 modify environmental tech miners
-modify various hoe recipes, let only Agri-line players can craft
-modify AIOT recipes, let Tech-line players craft
+modify Xnet elec-pipes, provide for Agei-line players
+modify cookers recipes, stage them
 */
