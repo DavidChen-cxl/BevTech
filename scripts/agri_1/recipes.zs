@@ -4,6 +4,7 @@ import crafttweaker.api.FurnaceManager;//fornace recipe require this
 import crafttweaker.api.SmithingManager;
 import crafttweaker.api.tag.MCTag;
 import crafttweaker.api.item.MCItemDefinition;
+import crafttweaker.api.registries.IRecipeManager;
 
 /* EARLY EGE */
 //Crafting Table Module
@@ -743,11 +744,1363 @@ craftingTable.addShaped("bb.bot_elementium_hoe", <item:aiotbotania:elementium_ho
     [<item:minecraft:air>,                  <item:botania:dreamwood_twig>]
 ]);
 
+craftingTable.removeRecipe(<item:pamhc2foodcore:potitem>);
+craftingTable.addShaped("bb.pam2fc_potitem", <item:pamhc2foodcore:potitem>, [
+    [<item:minecraft:air>,                 <item:minecraft:air>,               <item:botania:rune_fire>],
+    [<tag:items:forge:rods>,               <tag:items:forge:ingots/manasteel>, <tag:items:forge:ingots/manasteel>],
+    [<item:industrialforegoing:dryrubber>, <tag:items:forge:ingots/manasteel>, <tag:items:forge:ingots/manasteel>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:saucepanitem>);
+craftingTable.addShaped("bb.pam2fc_saucepanitem", <item:pamhc2foodcore:saucepanitem>, [
+    [<tag:items:forge:rods>,               <tag:items:forge:ingots/manasteel>],
+    [<item:industrialforegoing:dryrubber>, <item:botania:rune_fire>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:skilletitem>);
+craftingTable.addShaped("bb.pam2fc_skilletitem", <item:pamhc2foodcore:skilletitem>, [
+    [<tag:items:forge:ingots/manasteel>,   <item:industrialforegoing:dryrubber>, <item:minecraft:air>],
+    [<item:botania:rune_fire>,             <tag:items:forge:rods>,               <item:minecraft:air>],
+    [<item:minecraft:air>,                 <item:minecraft:air>,                 <tag:items:forge:rods>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:rolleritem>);
+craftingTable.addShaped("bb.pam2fc_rolleritem", <item:pamhc2foodcore:rolleritem>, [
+    [<tag:items:forge:rods>, <tag:items:minecraft:logs>, <tag:items:forge:rods>],
+    [<item:minecraft:air>,   <item:botania:rune_earth>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:mixingbowlitem>);
+craftingTable.addShaped("bb.pam2fc_mixingbowlitem", <item:pamhc2foodcore:mixingbowlitem>, [
+    [<item:minecraft:air>,         <item:botania:rune_earth>,    <item:minecraft:air>],
+    [<tag:items:minecraft:planks>, <tag:items:forge:rods>,       <tag:items:minecraft:planks>],
+    [<item:minecraft:air>,         <tag:items:minecraft:planks>, <item:minecraft:air>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:grinderitem>);
+craftingTable.addShaped("bb.pam2fc_grinderitem", <item:pamhc2foodcore:grinderitem>, [
+    [<item:minecraft:air>,      <item:botania:rune_earth>, <item:minecraft:air>],
+    [<item:botania:livingrock>, <tag:items:forge:rods>,    <item:botania:livingrock>],
+    [<item:minecraft:air>,      <item:botania:livingrock>, <item:minecraft:air>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:juiceritem>);
+craftingTable.addShaped("bb.pam2fc_juiceritem", <item:pamhc2foodcore:juiceritem>, [
+    [<item:minecraft:air>,      <item:botania:rune_water>, <item:minecraft:air>],
+    [<item:minecraft:air>,      <item:botania:livingrock>, <item:minecraft:air>],
+    [<item:botania:livingrock>, <tag:items:forge:ingots/manasteel>,    <item:botania:livingrock>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:cuttingboarditem>);
+craftingTable.addShaped("bb.pam2fc_cuttingboarditem", <item:pamhc2foodcore:cuttingboarditem>, [
+    [<tag:items:forge:ingots/manasteel>],
+    [<item:minecraft:air>,               <tag:items:forge:rods>],
+    [<item:minecraft:air>,               <item:minecraft:air>,   <tag:items:minecraft:planks>]
+]);
+
+craftingTable.removeRecipe(<item:pamhc2foodcore:bakewareitem>);
+craftingTable.addShaped("bb.pam2fc_bakewareitem", <item:pamhc2foodcore:bakewareitem>, [
+    [<item:minecraft:brick>,            <tag:items:forge/ingots/manasteel>, <item:minecraft:brick>],
+    [<tag:items:forge/ingots/manasteel>, <item:botania:rune_fire>,          <item:minecraft:brick>],
+    [<item:minecraft:brick>,            <tag:items:forge/ingots/manasteel>, <item:minecraft:brick>]
+]);
+
+<recipetype:industrialforegoing:dissolution_chamber>.removeByName("industrialforegoing:dissolution_chamber/simple_machine_frame");
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_simple_machine_frame",{
+    "input": [{
+        "tag": "forge:plastic"
+        },
+        {
+            "tag": "industrialforegoing:machine_frame/pity"
+        },
+        {
+            "tag": "forge:plastic"
+        },
+        {
+            "item": "minecraft:popped_chorus_fruit"
+        },
+        {
+            "item": "minecraft:popped_chorus_fruit"
+        },
+        {
+            "tag": "forge:ingots/iron"
+        },
+        {
+            "tag": "forge:gears/gold"
+        },
+        {
+            "tag": "forge:ingots/iron"
+        }],
+    "inputFluid": "{FluidName:\"industrialforegoing:latex\",Amount:250}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_simple",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.removeByName("industrialforegoing:dissolution_chamber/advanced_machine_frame");
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_advanced_machine_frame", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:life_essence"
+    },
+    {
+        "item": "botania:life_essence"
+    },
+    {
+        "tag": "forge:ingots/gold"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:ingots/gold"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:pink_slime\",Amount:500}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_advanced",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.removeByName("industrialforegoing:dissolution_chamber/supreme_machine_frame");
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_ahrim_ahrim", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_ahrim_dharok", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_ahrim_guthan", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_ahrim_torag", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_ahrim_verac", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_ahrim_karil", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_dharok_ahrim", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_dharok_dharok", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_dharok_guthan", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_dharok_torag", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_dharok_verac", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_dharok_karil", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_guthan_ahrim", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_guthan_dharok", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_guthan_guthan", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_guthan_torag", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_guthan_verac", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_guthan_karil", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_torag_ahrim", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_torag_dharok", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_torag_guthan", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_torag_torag", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_torag_verac", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_torag_karil", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_verac_ahrim", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_verac_dharok", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_verac_guthan", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_verac_torag", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_verac_verac", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_verac_karil", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_karil_ahrim", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "item": "botania:ancient_will_ahrim"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_karil_dharok", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "item": "botania:ancient_will_dharok"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_karil_guthan", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "item": "botania:ancient_will_guthan"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_karil_torag", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "item": "botania:ancient_will_torag"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_karil_verac", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "item": "botania:ancient_will_verac"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
+
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_supreme_machine_frame_karil_karil", {
+    "input": [
+    {
+        "tag": "forge:plastic"
+    },
+    {
+       "tag": "industrialforegoing:machine_frame/simple"
+    },
+    {
+        "tag": "forge:plastic"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "item": "botania:ancient_will_karil"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    },
+    {
+        "tag": "forge:gears/diamond"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:135}",
+    "processingTime": 300,
+    "output": {
+        "item": "industrialforegoing:machine_frame_supreme",
+        "count": 1
+    }
+});
 /*
-20210128
+20210130
 TO DO LIST
-modify machine frames
-modify environmental tech miners
-modify Xnet elec-pipes, provide for Agei-line players
-modify cookers recipes, stage them
+modify environmental tech miners, only for Tech-line players
+modify Xnet elec-wires, provide only for Agri-line players
 */
