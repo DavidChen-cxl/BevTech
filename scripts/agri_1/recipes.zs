@@ -602,6 +602,13 @@ craftingTable.addShapeless("bb.aiot_elementium_aiot", <item:aiotbotania:elementi
     <item:botania:elementium_shovel>, <item:mekanism:elite_control_circuit>
 ]);
 
+craftingTable.removeRecipe(<item:envirocore:laser_core>);
+craftingTable.addShaped("bb.env_laser_core", <item:envirocore:laser_core>, [
+    [<item:envirocore:obsidian_plate>, <item:botania:dragonstone>, <item:envirocore:obsidian_plate>],
+    [<item:botania:dragonstone>,       <item:mekanism:robit>,      <item:botania:dragonstone>],
+    [<item:envirocore:obsidian_plate>, <item:botania:dragonstone>, <item:envirocore:obsidian_plate>]
+]);
+
 /* AGRI */
 craftingTable.removeRecipe(<item:scalinghealth:heart_crystal>);
 craftingTable.addShaped("bb.scal_heart_crystal", <item:scalinghealth:heart_crystal>, [
@@ -2098,9 +2105,173 @@ craftingTable.addShaped("bb.pam2fc_bakewareitem", <item:pamhc2foodcore:bakewarei
         "count": 1
     }
 });
+
+craftingTable.addShaped("bb.mek_basic_universal_cable_agri", <item:mekanism:basic_universal_cable> * 8, [
+    [<item:the_bumblezone:honey_crystal_shards>, <tag:items:forge:dusts/redstone>, <item:the_bumblezone:honey_crystal_shards>]
+]);
+
+craftingTable.addShapeless("bb.mek_advanced_universal_cable_agri", <item:mekanism:advanced_universal_cable> * 8, [
+    <item:mekanism:basic_universal_cable> * 8, <tag:items:forge:gears/iron>
+]);
+
+craftingTable.addShapeless("bb.mek_elite_universal_cable_agri", <item:mekanism:elite_universal_cable> * 8, [
+    <item:mekanism:advanced_universal_cable> * 8, <tag:items:forge:gears/gold>
+]);
+
+craftingTable.addShapeless("bb.mek_ultimate_universal_cable_agri", <item:mekanism:ultimate_universal_cable> * 8, [
+    <item:mekanism:elite_universal_cable> * 8, <tag:items:forge:gears/diamond>
+]);
+
+craftingTable.removeRecipe(<item:titanium:iron_gear>);
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_iron_gear", {
+    "input": [
+    {
+        "tag": "forge:ingots/iron"
+    },
+    {
+        "tag": "forge:ingots/iron"
+    },
+    {
+        "tag": "forge:ingots/iron"
+    },
+    {
+        "tag": "forge:ingots/iron"
+    },
+    {
+        "tag": "forge:dusts/redstone"
+    }],
+    "processingTime": 300,
+    "output": {
+        "item": "titanium:iron_gear",
+        "count": 4
+    }
+});
+
+craftingTable.removeRecipe(<item:titanium:gold_gear>);
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_gold_gear", {
+    "input": [
+    {
+        "tag": "forge:gears/iron"
+    },
+    {
+        "tag": "forge:gears/iron"
+    },
+    {
+        "tag": "forge:gears/iron"
+    },
+    {
+        "tag": "forge:gears/iron"
+    },
+    {
+        "tag": "forge:ingots/gold"
+    }],
+    "processingTime": 300,
+    "output": {
+        "item": "titanium:gold_gear",
+        "count": 4
+    }
+});
+
+craftingTable.removeRecipe(<item:titanium:diamond_gear>);
+<recipetype:industrialforegoing:dissolution_chamber>.addJSONRecipe("bb.if_dissolution_chamber_diamond_gear", {
+    "input": [
+    {
+        "tag": "forge:gears/gold"
+    },
+    {
+        "tag": "forge:gears/gold"
+    },
+    {
+        "tag": "forge:gears/gold"
+    },
+    {
+        "tag": "forge:gears/gold"
+    },
+    {
+        "tag": "forge:gems/diamond"
+    }],
+    "processingTime": 300,
+    "output": {
+        "item": "titanium:diamond_gear",
+        "count": 4
+    }
+});
+
+craftingTable.removeRecipe(<item:industrialforegoing:dissolution_chamber>);
+craftingTable.addShaped("bb.if_dissolution_chamber", <item:industrialforegoing:dissolution_chamber>, [
+    [<item:industrialforegoing:plastic>, <tag:items:forge:chests>,                      <item:industrialforegoing:plastic>],
+    [<item:minecraft:bucket>,            <item:industrialforegoing:machine_frame_pity>, <item:minecraft:bucket>],
+    [<item:industrialforegoing:plastic>, <tag:items:forge:chests>,                      <item:industrialforegoing:plastic>]
+]);
+
+// mechanical_pipe
+craftingTable.addShaped("bb.mek_basic_mechanical_pipe_agri", <item:mekanism:basic_mechanical_pipe> * 8, [
+    [<item:the_bumblezone:honey_crystal_shards>, <item:minecraft:bucket>, <item:the_bumblezone:honey_crystal_shards>]
+]);
+
+craftingTable.addShapeless("bb.mek_advanced_mechanical_pipe_agri", <item:mekanism:advanced_mechanical_pipe> * 8, [
+    <item:mekanism:basic_mechanical_pipe> * 8, <tag:items:forge:gears/iron>
+]);
+
+craftingTable.addShapeless("bb.mek_elite_mechanical_pipe_agri", <item:mekanism:elite_mechanical_pipe> * 8, [
+    <item:mekanism:advanced_mechanical_pipe> * 8, <tag:items:forge:gears/gold>
+]);
+
+craftingTable.addShapeless("bb.mek_ultimate_mechanical_pipe_agri", <item:mekanism:ultimate_mechanical_pipe> * 8, [
+    <item:mekanism:elite_mechanical_pipe> * 8, <tag:items:forge:gears/diamond>
+]);
+
+// pressurized_tube
+craftingTable.addShaped("bb.mek_basic_pressurized_tube_agri", <item:mekanism:basic_pressurized_tube> * 8, [
+    [<item:the_bumblezone:honey_crystal_shards>, <tag:items:forge:glass>, <item:the_bumblezone:honey_crystal_shards>]
+]);
+
+craftingTable.addShapeless("bb.mek_advanced_pressurized_tube_agri", <item:mekanism:advanced_pressurized_tube> * 8, [
+    <item:mekanism:basic_pressurized_tube> * 8, <tag:items:forge:gears/iron>
+]);
+
+craftingTable.addShapeless("bb.mek_elite_pressurized_tube_agri", <item:mekanism:elite_pressurized_tube> * 8, [
+    <item:mekanism:advanced_pressurized_tube> * 8, <tag:items:forge:gears/gold>
+]);
+
+craftingTable.addShapeless("bb.mek_ultimate_pressurized_tube_agri", <item:mekanism:ultimate_pressurized_tube> * 8, [
+    <item:mekanism:elite_pressurized_tube> * 8, <tag:items:forge:gears/diamond>
+]);
+
+// logistical_transporter
+craftingTable.addShaped("bb.mek_basic_logistical_transporter_agri", <item:mekanism:basic_logistical_transporter> * 8, [
+    [<item:the_bumblezone:honey_crystal_shards>, <tag:items:forge:chests>, <item:the_bumblezone:honey_crystal_shards>]
+]);
+
+craftingTable.addShapeless("bb.mek_advanced_logistical_transporter_agri", <item:mekanism:advanced_logistical_transporter> * 8, [
+    <item:mekanism:basic_logistical_transporter> * 8, <tag:items:forge:gears/iron>
+]);
+
+craftingTable.addShapeless("bb.mek_elite_logistical_transporter_agri", <item:mekanism:elite_logistical_transporter> * 8, [
+    <item:mekanism:advanced_logistical_transporter> * 8, <tag:items:forge:gears/gold>
+]);
+
+craftingTable.addShapeless("bb.mek_ultimate_logistical_transporter_agri", <item:mekanism:ultimate_logistical_transporter> * 8, [
+    <item:mekanism:elite_logistical_transporter> * 8, <tag:items:forge:gears/diamond>
+]);
+
+// thermodynamic_conductor
+craftingTable.addShaped("bb.mek_basic_thermodynamic_conductor_agri", <item:mekanism:basic_thermodynamic_conductor> * 8, [
+    [<item:the_bumblezone:honey_crystal_shards>, <tag:items:forge:ingots/copper>, <item:the_bumblezone:honey_crystal_shards>]
+]);
+
+craftingTable.addShapeless("bb.mek_advanced_thermodynamic_conductor_agri", <item:mekanism:advanced_thermodynamic_conductor> * 8, [
+    <item:mekanism:basic_thermodynamic_conductor> * 8, <tag:items:forge:gears/iron>
+]);
+
+craftingTable.addShapeless("bb.mek_elite_thermodynamic_conductor_agri", <item:mekanism:elite_thermodynamic_conductor> * 8, [
+    <item:mekanism:advanced_thermodynamic_conductor> * 8, <tag:items:forge:gears/gold>
+]);
+
+craftingTable.addShapeless("bb.mek_ultimate_thermodynamic_conductor_agri", <item:mekanism:ultimate_thermodynamic_conductor> * 8, [
+    <item:mekanism:elite_thermodynamic_conductor> * 8, <tag:items:forge:gears/diamond>
+]);
 /*
-20210130
-TO DO LIST
-modify environmental tech miners, only for Tech-line players
-modify Xnet elec-wires, provide only for Agri-line players
+20210131
+Congratulations! Buliding complete!
 */
