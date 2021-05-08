@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:wooden_hoe"
+		},
+		"title": {
+			"text": "易碎"
+		},
+		"description": {
+			"text": "制作耕地"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:farmland"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:universal/overqualified"
+}

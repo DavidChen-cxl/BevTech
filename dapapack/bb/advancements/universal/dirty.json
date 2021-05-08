@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "quark:dirty_glass"
+		},
+		"title": {
+			"text": "噫~"
+		},
+		"description": {
+			"text": "获得脏玻璃"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "quark:dirty_glass"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:universal/overqualified"
+}

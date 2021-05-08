@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:wooden_pickaxe"
+		},
+		"title": {
+			"text": "制作镐"
+		},
+		"description": {
+			"text": "获得圆石"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:stone"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:universal/getting_flint"
+}

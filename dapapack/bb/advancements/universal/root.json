@@ -1,0 +1,23 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:wooden_hoe"
+		},
+		"title": {
+			"text": "开启Beebox之旅"
+		},
+		"description": {
+			"text": "Let's Bee-Box!"
+		},
+		"frame": "task",
+		"background": "minecraft:textures/block/honeycomb_block.png"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"requirements": [
+		["sealing_wand"]
+	]
+}

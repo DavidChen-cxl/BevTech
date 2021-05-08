@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:white_wool"
+		},
+		"title": {
+			"text": "农业核心（？）"
+		},
+		"description": {
+			"text": "制作燧石剪刀"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "cyclic:shears_flint"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:universal/getting_flint"
+}

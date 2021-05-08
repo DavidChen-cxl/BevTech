@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:stonecutter"
+		},
+		"title": {
+			"text": "大材小用"
+		},
+		"description": {
+			"text": "用切石机制作橡木木板"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:oak_planks"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:universal/make_craftingtable"
+}

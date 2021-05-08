@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:honey_bottle"
+		},
+		"title": {
+			"text": "站住，小偷！"
+		},
+		"description": {
+			"text": "从野生蜂巢里接一瓶蜂蜜"
+		},
+		"frame": "challenge"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:honey_bottle"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:universal/cleaner"
+}
