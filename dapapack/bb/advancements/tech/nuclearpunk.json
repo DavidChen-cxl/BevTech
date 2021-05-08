@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": ""
+		},
+		"title": {
+			"text": "热核朋克"
+		},
+		"description": {
+			"text": "搭建工业蒸汽涡轮"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": ""
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/boil_ways"
+}

@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanism:thermal_evaporation_controller"
+		},
+		"title": {
+			"text": "钢铁的洪流滚滚向前！"
+		},
+		"description": {
+			"text": "制作热力蒸馏塔"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanism:thermal_evaporation_controller"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/advanced_circuit"
+}

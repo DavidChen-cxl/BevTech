@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanism:clump_tin"
+		},
+		"title": {
+			"text": "三阳开泰"
+		},
+		"description": {
+			"text": "利用提纯仓三倍产矿"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanism:purification_chamber"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/advanced_circuit"
+}

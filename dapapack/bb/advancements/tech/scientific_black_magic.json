@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "botania:black_lotus"
+		},
+		"title": {
+			"text": "某科学的黑魔法"
+		},
+		"description": {
+			"text": "用富集煤炭制作黑莲花"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "botania:black_lotus"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/efficient_use"
+}

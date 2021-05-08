@@ -1,0 +1,23 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanismgenerators:heat_generator"
+		},
+		"title": {
+			"text": "科技线"
+		},
+		"description": {
+			"text": "开启科技之旅"
+		},
+		"frame": "task",
+		"background": "mekanism:textures/block/block_lead.png"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"requirements": [
+		["sealing_wand"]
+	]
+}

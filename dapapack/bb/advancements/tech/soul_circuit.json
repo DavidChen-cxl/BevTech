@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "botania:life_essence"
+		},
+		"title": {
+			"text": "灵魂电路"
+		},
+		"description": {
+			"text": "用盖亚之魂制作精英控制电路"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanism:elite_control_circuit"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/gaia"
+}

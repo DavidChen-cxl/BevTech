@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "botania:manasteel_chestplate"
+		},
+		"title": {
+			"text": "是时候了！"
+		},
+		"description": {
+			"text": "用植物魔法武装自己"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "botania:manasteel_chestplate"
+				}]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/scientific_black_magic"
+}

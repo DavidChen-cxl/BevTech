@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanism:ingot_refined_glowstone"
+		},
+		"title": {
+			"text": "炼金术士"
+		},
+		"description": {
+			"text": "制作合金灌注机"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanism:metallurgic_infuser"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/root"
+}

@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "botania:elementium_chestplate"
+		},
+		"title": {
+			"text": "精灵的祝福"
+		},
+		"description": {
+			"text": "把魔钢装备升级到源质装备"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "botania:elementium_chestplate"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/plant_magic"
+}

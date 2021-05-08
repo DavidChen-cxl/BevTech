@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanism:advanced_control_circuit"
+		},
+		"title": {
+			"text": "舌尖上的电路板"
+		},
+		"description": {
+			"text": "用爆裂紫颂果制作高级控制电路"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanism:advanced_control_circuit"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/efficient_use"
+}

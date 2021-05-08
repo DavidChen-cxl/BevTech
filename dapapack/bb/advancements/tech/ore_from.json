@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "botania:orechid"
+		},
+		"title": {
+			"text": "矿从哪里来？"
+		},
+		"description": {
+			"text": "使用凝矿兰"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "botania:orechid"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/scientific_black_magic"
+}

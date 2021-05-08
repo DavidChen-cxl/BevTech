@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanism:enriched_carbon"
+		},
+		"title": {
+			"text": "高效利用"
+		},
+		"description": {
+			"text": "制作富集仓"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanism:enrichment_chamber"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/alchemist"
+}

@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "mekanismgenerators:fission_reactor_logic_adapter"
+		},
+		"title": {
+			"text": "改变烧水的方式"
+		},
+		"description": {
+			"text": "搭建裂变反应堆"
+		},
+		"frame": "task"
+	},
+	"criteria": {
+		"sealing_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "mekanismgenerators:fission_reactor_logic_adapter"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"function": "bb:score_1"
+	},
+	"parent": "bb:tech/soul_circuit"
+}
